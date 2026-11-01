@@ -1123,7 +1123,7 @@
         icon.style.transform = 'none';
       }
       icon.classList.add('is-dragging');
-      icon.style.zIndex = '90';
+      icon.style.zIndex = '3';
       const maxLeft = Math.max(0, desktop.clientWidth - icon.offsetWidth);
       const maxTop = Math.max(0, desktop.clientHeight - icon.offsetHeight);
       icon.style.left = `${Math.max(0, Math.min(maxLeft, desktopDrag.left + dx))}px`;
