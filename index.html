@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f4f0">
+  <meta name="description" content="Shailesh Jaiswal, motion designer and video editor. Explore projects, resources and creative tools in a macOS-inspired portfolio.">
+  <title>Shailesh Jaiswal · Desktop</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20261102-finder-multi-2">
+</head>
+<body>
+  <main class="desktop" aria-label="macOS-inspired portfolio desktop">
+    <div class="wallpaper-grain" aria-hidden="true"></div>
+
+    <!-- Desktop folders -->
+    <button class="desktop-icon folder-icon projects-icon" data-folder="Projects" aria-label="Open Projects">
+      <img class="folder-art" src="assets/folder.svg" alt="">
+      <span>Projects</span>
+    </button>
+    <button class="desktop-icon folder-icon resources-icon" data-folder="Resources" aria-label="Open Resources">
+      <img class="folder-art" src="assets/folder.svg" alt="">
+      <span>Resources</span>
+    </button>
+
+    <!-- The featured video stays inside a light-themed Camera window. -->
+    <section class="video-window app-window is-active" id="videoWindow" aria-label="Camera featured video window">
+      <header class="window-titlebar" id="windowTitlebar">
+        <div class="traffic-lights" aria-label="Window controls">
+          <button class="traffic-light close red" id="closeWindow" aria-label="Close window"></button>
+          <button class="traffic-light minimize yellow" id="minimizeWindow" aria-label="Minimize window"></button>
+          <button class="traffic-light maximize green" id="maximizeWindow" aria-label="Toggle full screen"></button>
+        </div>
+        <span class="window-title">Camera</span>
+      </header>
+      <div class="video-stage">
+        <div class="desktop-youtube" id="desktopYouTube" aria-label="Featured YouTube video"></div>
+        <div class="video-fallback" id="videoFallback" aria-hidden="true"></div>
+      </div>
+      <footer class="window-toolbar">
+        <div class="toolbar-left" aria-label="Camera controls">
+          <button class="tool-icon audio-toggle is-muted" id="audioTool" aria-label="Turn sound on" title="Sound off. Click to turn on">
+            <svg class="icon-sound" viewBox="0 0 20 20" aria-hidden="true"><path d="M3.5 8h2.6L10 4.8v10.4L6.1 12H3.5z"/><path d="M13 7.2a4 4 0 0 1 0 5.6M15.2 5a7 7 0 0 1 0 10"/></svg>
+            <svg class="icon-muted" viewBox="0 0 20 20" aria-hidden="true"><path d="M3.5 8h2.6L10 4.8v10.4L6.1 12H3.5z"/><path d="M13.2 7.8l4 4.4M17.2 7.8l-4 4.4"/></svg>
+          </button>
+        </div>
+        <button class="capture-button" id="playPauseButton" aria-label="Pause video" title="Pause">
+          <svg class="icon-pause" viewBox="0 0 28 28" aria-hidden="true"><rect x="9" y="8" width="3.6" height="12" rx="1"/><rect x="15.4" y="8" width="3.6" height="12" rx="1"/></svg>
+          <svg class="icon-play" viewBox="0 0 28 28" aria-hidden="true"><path d="M10.5 8.4v11.2a.8.8 0 0 0 1.2.7l9-5.6a.8.8 0 0 0 0-1.4l-9-5.6a.8.8 0 0 0-1.2.7z"/></svg>
+        </button>
+        <button class="effects-button" id="effectsButton" aria-expanded="false">Effects</button>
+        <div class="effects-menu" id="effectsMenu" hidden>
+          <span class="effects-heading">Video effects</span>
+          <button data-filter="none" class="active">Original</button>
+          <button data-filter="soft">Soft</button>
+          <button data-filter="warm">Warm</button>
+          <button data-filter="mono">Mono</button>
+        </div>
+      </footer>
+    </section>
+    <button class="restore-window" id="restoreWindow" aria-label="Restore Camera" title="Camera" hidden>
+      <img src="assets/icons/camera-app.png" alt="">
+      <span>Camera</span>
+    </button>
+
+    <!-- Real supplied silver SSD image -->
+    <button class="desktop-icon drive-icon" id="driveIcon" aria-label="Open SSD">
+      <img class="drive-art" src="assets/icons/ssd.png" alt="">
+      <span>SSD</span>
+    </button>
+
+    <!-- Screenshot stays as supplied in the first version. -->
+    <button class="desktop-icon screenshot-icon" id="screenshotIcon" aria-label="Open screenshot file">
+      <span class="screenshot-paper"><img src="assets/screenshot-thumb.png" alt="Screenshot thumbnail"></span>
+      <span>Screenshot<br>2025-... 15.48.35</span>
+    </button>
+
+    <!-- Notes app replaces the former .txt desktop item. -->
+    <button class="desktop-icon notes-icon" id="aboutIcon" aria-label="Open Notes about page">
+      <img class="notes-art" src="assets/notes.svg" alt="">
+      <span>Notes</span>
+    </button>
+
+    <!-- Finder window: all categories live in Favorites in the sidebar. -->
+    <section class="finder-panel app-window" id="finderPanel" hidden role="dialog" aria-modal="false" aria-labelledby="finderTitle">
+      <header class="finder-toolbar" id="finderToolbar">
+        <div class="finder-traffic-lights" aria-label="Window controls">
+          <button class="traffic-light red" id="finderCloseDot" aria-label="Close Finder window"></button>
+          <button class="traffic-light yellow" id="finderMinDot" aria-label="Minimize Finder window"></button>
+          <button class="traffic-light green" id="finderMaxDot" aria-label="Toggle Finder window size"></button>
+        </div>
+        <div class="finder-nav-controls">
+          <button class="finder-nav-button" id="finderBack" aria-label="Back" disabled>‹</button>
+          <button class="finder-nav-button" id="finderForward" aria-label="Forward" disabled>›</button>
+        </div>
+        <h1 id="finderTitle">Projects</h1>
+        <div class="finder-toolbar-actions">
+          <button class="toolbar-symbol view-grid active" id="viewGridButton" aria-label="Icon view" title="Icon view">▦</button>
+          <button class="toolbar-symbol view-list" id="viewListButton" aria-label="List view" title="List view">☷</button>
+          <button class="toolbar-symbol" id="finderMore" aria-label="More options" title="More options">•••</button>
+          <button class="toolbar-symbol" id="finderShare" aria-label="Share" title="Share">↥</button>
+          <button class="toolbar-symbol search-toggle" id="finderSearchToggle" aria-label="Search" title="Search">⌕</button>
+        </div>
+      </header>
+      <div class="finder-search-row" id="finderSearchRow" hidden>
+        <input id="finderSearch" type="search" placeholder="Search everything: videos, folders, resources, apps" aria-label="Search this Finder window">
+      </div>
+      <div class="finder-body">
+        <aside class="finder-sidebar" id="finderSidebar" aria-label="Finder sidebar">
+          <div class="sidebar-section">
+            <div class="sidebar-section-title">Favorites</div>
+            <button class="sidebar-item standard-item" data-standard="Applications"><span class="sidebar-symbol app-symbol">▦</span><span>Applications</span></button>
+            <button class="sidebar-item standard-item" data-standard="Recents"><span class="sidebar-symbol recent-symbol">◷</span><span>Recents</span></button>
+            <button class="sidebar-item standard-item" data-standard="AirDrop"><span class="sidebar-symbol airdrop-symbol">◎</span><span>AirDrop</span></button>
+            <button class="sidebar-item standard-item" data-standard="Desktop"><span class="sidebar-symbol desktop-symbol">▣</span><span>Desktop</span></button>
+            <button class="sidebar-item standard-item" data-standard="Documents"><span class="sidebar-symbol documents-symbol">▤</span><span>Documents</span></button>
+            <button class="sidebar-item standard-item" data-standard="Downloads"><span class="sidebar-symbol downloads-symbol">↓</span><span>Downloads</span></button>
+            <div class="sidebar-custom-items" id="sidebarCustomItems"></div>
+          </div>
+          <div class="sidebar-section icloud-section">
+            <div class="sidebar-section-title">iCloud</div>
+            <button class="sidebar-item standard-item" data-standard="iCloud Drive"><span class="sidebar-symbol cloud-symbol">☁</span><span>iCloud Drive</span></button>
+          </div>
+          <div class="sidebar-section tags-section">
+            <div class="sidebar-section-title">Tags</div>
+            <button class="sidebar-item tag-item" data-standard="Blue Tag"><i class="tag-dot blue"></i><span>Blue Tag</span></button>
+            <button class="sidebar-item tag-item" data-standard="Orange Tag"><i class="tag-dot orange"></i><span>Orange Tag</span></button>
+            <button class="sidebar-item tag-item" data-standard="Green Tag"><i class="tag-dot green"></i><span>Green Tag</span></button>
+            <button class="sidebar-item tag-item" data-standard="Purple Tag"><i class="tag-dot purple"></i><span>Purple Tag</span></button>
+            <button class="sidebar-item tag-item" data-standard="Teal Tag"><i class="tag-dot teal"></i><span>Teal Tag</span></button>
+          </div>
+        </aside>
+        <section class="finder-main" id="finderMain" aria-label="Folder contents">
+          <div class="finder-content" id="finderContent"></div>
+          <div class="finder-statusbar"><span id="finderItemCount">0 items</span><span>Available on this Mac</span></div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Every video opens in its own floating player window (created in script.js),
+         so any number of videos can be open at once. Minimized players wait here. -->
+    <div class="minimized-tray" id="minimizedTray" aria-label="Minimized windows"></div>
+
+    <!-- Notes: structured like the supplied Notes.svg (folders | note list | note). -->
+    <section class="text-viewer notes-window app-window" id="textViewer" hidden role="dialog" aria-modal="false" aria-label="Notes">
+      <div class="notes-layout">
+        <aside class="notes-sidebar" aria-label="Notes folders">
+          <div class="notes-sidebar-top" data-drag>
+            <div class="finder-traffic-lights">
+              <button class="traffic-light red" id="notesCloseDot" aria-label="Close Notes"></button>
+              <button class="traffic-light yellow" id="notesMinDot" aria-label="Minimize Notes"></button>
+              <button class="traffic-light green" id="notesMaxDot" aria-label="Toggle Notes size"></button>
+            </div>
+          </div>
+          <div class="notes-account">On My Mac</div>
+          <div class="notes-folder-list" id="notesFolders"></div>
+        </aside>
+        <section class="notes-listcol" aria-label="Notes list">
+          <div class="notes-bar" data-drag>
+            <button class="notes-tool" type="button" aria-label="List view" tabindex="-1"><svg viewBox="0 0 22 22"><path d="M3 6h1M3 11h1M3 16h1M7 6h12M7 11h12M7 16h12"/></svg></button>
+            <button class="notes-tool" type="button" aria-label="Gallery view" tabindex="-1"><svg viewBox="0 0 22 22"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="12" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="12" width="7" height="7" rx="1.5"/><rect x="12" y="12" width="7" height="7" rx="1.5"/></svg></button>
+            <span class="notes-spacer"></span>
+            <button class="notes-tool" type="button" aria-label="Delete" tabindex="-1"><svg viewBox="0 0 22 22"><path d="M5 6h12M9 6V4h4v2M6.5 6l.7 12h7.6l.7-12M9.5 9.5v6M12.5 9.5v6"/></svg></button>
+          </div>
+          <div class="notes-list" id="notesList"></div>
+        </section>
+        <section class="notes-doccol" aria-label="Note">
+          <div class="notes-bar" data-drag>
+            <button class="notes-tool" type="button" aria-label="New note" tabindex="-1"><svg viewBox="0 0 22 22"><path d="M10 4H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M16.5 3.5l2 2-8 8-3 1 1-3z"/></svg></button>
+            <button class="notes-tool aa" type="button" aria-label="Format" tabindex="-1">Aa</button>
+            <button class="notes-tool" type="button" aria-label="Checklist" tabindex="-1"><svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="7.5"/><path d="M7.8 11.2l2.4 2.4 4-4.6"/></svg></button>
+            <button class="notes-tool" type="button" aria-label="Table" tabindex="-1"><svg viewBox="0 0 22 22"><rect x="3.5" y="4.5" width="15" height="13" rx="1.8"/><path d="M3.5 9h15M3.5 13.5h15M9.5 4.5v13"/></svg></button>
+            <span class="notes-spacer"></span>
+            <button class="notes-tool" type="button" aria-label="Lock" tabindex="-1"><svg viewBox="0 0 22 22"><rect x="5" y="9.5" width="12" height="8" rx="2"/><path d="M8 9.5V7.5a3 3 0 0 1 6 0v2"/></svg></button>
+            <button class="notes-tool" type="button" aria-label="Media" tabindex="-1"><svg viewBox="0 0 22 22"><rect x="3.5" y="5" width="15" height="12" rx="1.8"/><path d="M4.5 15l4-4 3 3 2-2 4 4"/></svg></button>
+            <button class="notes-tool" type="button" aria-label="Share" tabindex="-1"><svg viewBox="0 0 22 22"><path d="M11 13V3.5M7.5 7L11 3.5 14.5 7M6 10H5.5A1.5 1.5 0 0 0 4 11.5v5A1.5 1.5 0 0 0 5.5 18h11a1.5 1.5 0 0 0 1.5-1.5v-5a1.5 1.5 0 0 0-1.5-1.5H16"/></svg></button>
+            <button class="notes-tool" type="button" aria-label="Close Notes" id="closeText"><svg viewBox="0 0 22 22"><path d="M5 6l5 5-5 5M11 6l5 5-5 5"/></svg></button>
+            <button class="notes-tool" type="button" aria-label="Search" tabindex="-1"><svg viewBox="0 0 22 22"><circle cx="9.5" cy="9.5" r="5.5"/><path d="M14 14l4 4"/></svg></button>
+          </div>
+          <div class="notes-date" id="notesDate"></div>
+          <article class="notes-document" id="aboutText"></article>
+        </section>
+      </div>
+    </section>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </main>
+  <script src="script.js?v=20261102-about-finder-multi-2"></script>
+</body>
+</html>
